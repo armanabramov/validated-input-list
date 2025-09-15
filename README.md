@@ -1,12 +1,29 @@
-# React + Vite
+# prompt-to-list
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Небольшое React-приложение: запрашивает у пользователя значение через `prompt()`, валидирует (минимум 3 символа), показывает текущее значение в кавычках и позволяет добавлять корректные значения в список с отметкой времени создания. Проект подготовлен для использования с CSS-модулями, ESLint, Prettier и EditorConfig.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Особенности
+- Кнопка **Ввести новое** — вызывает `prompt()` для ввода значения.  
+- Валидация: значение считается корректным только если `value.trim().length >= 3`.  
+- При некорректном вводе — отображается сообщение об ошибке; некорректное значение не сохраняется.  
+- Корректное значение выводится в кавычках под заголовком.  
+- Кнопка **Добавить в список** активна только при корректном значении.  
+- При добавлении элемент сохраняется в виде объекта `{ id, value, createdAt }`, после чего `value` и `error` сбрасываются.  
+- Если список пуст — показывается сообщение **Нет добавленных элементов**.  
+- Для каждого элемента хранится и отображается дата/время создания в формате `DD.MM.YYYY HH:MM:SS`.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Быстрый старт (локально)
+```bash
+# Клонировать репозиторий
+git clone https://github.com/armanabramov/validated-input-list.git
+cd validated-input-list
+
+# Установить зависимости
+npm install
+
+# Запустить в режиме разработки
+npm run dev
